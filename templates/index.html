@@ -4,15 +4,28 @@
     <title>Flask Intro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+
   </head>
   <body>
-    <div class="container">
+    <div id="apps">
+
       <h1>Home Page to Flask!</h1>
+      <h2>[[ messages ]] </h2>
+      <br>
+      <button v-on:click="counter += 1">Add 1</button>
+      <p>The button above has been clicked [[ counter ]] times.</p>
+      <br>
+      <br>
+      <li v-for="item in items">
+            [[ item.message ]]
+        </li>
       <br>
       <p>Click <a href="/logout">here</a> to logout.</p>
       {% for message in get_flashed_messages() %}
         {{ message }}
       {% endfor %}
     </div>
+    <script src="static/main.js"></script>
   </body>
 </html>
